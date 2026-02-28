@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Kévin ZINGA - Ingénieur SCT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .cv-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        /* Bannière supérieure avec logo et photo */
+        .top-banner {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #f1c40f;
+        }
+        
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-container {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 3px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* En-tête avec informations */
+        .cv-header {
+            padding: 30px;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+        
+        .header-text h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .header-text h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            color: #3498db;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        
+        /* Bouton WhatsApp */
+        .whatsapp-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        /* Tableau principal */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-content {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .content-cell {
+            padding: 15px 20px;
+            background-color: white;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .experience-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-item h4 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+        }
+        
+        .language-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .level-bar {
+            width: 100px;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .level-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 4px;
+        }
+        
+        /* Message d'instruction pour GitHub */
+        .github-note {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 2px solid #f1c40f;
+        }
+        
+        .github-note a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+        
+        .github-note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Bannière supérieure avec logo et photo -->
+        <div class="top-banner">
+            <!-- Logo à gauche -->
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo ESTM" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%; height:100%; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; font-weight:bold;\'>LOGO</div>'">
+            </div>
+            
+            <!-- Photo à droite -->
+            <div class="photo-container">
+                <img src="photo.jpg" alt="Photo Kévin" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%; height:100%; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; font-weight:bold;\'>PHOTO</div>'">
+            </div>
+        </div>
+        
+        <!-- En-tête avec informations personnelles et bouton WhatsApp -->
+        <div class="cv-header">
+            <div class="header-text">
+                <h1>ZINGA FOE DIVIN KEVIN</h1>
+                <h2>Élève Ingénieur en Sciences et Technologies</h2>
+                <div class="contact-info">
+                    <p>📞 689938437</p>
+                    <p>✉️ Zingafoedivin@gmail.com</p>
+                    <p>📍 Cameroun</p>
+                </div>
+                
+                <!-- Bouton WhatsApp -->
+                <a href="https://wa.me/237689938437" target="_blank" class="whatsapp-button">
+                    📱 Me contacter sur WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <!-- Corps du CV en tableau -->
+        <table>
+            <!-- PROFIL ET COMPÉTENCES -->
+            <tr>
+                <td colspan="2" class="section-title">PROFIL ET COMPÉTENCES</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="section-content">
+                    <div class="content-cell">
+                        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                            <strong>🎓 Élève ingénieur en Science et Technologie (SCT) niveau 1</strong> à l'ESTM 
+                            (École Supérieure des Transformations des Mines et des Ressources Énergétiques), 
+                            passionné par les énergies renouvelables avec un projet en cours de développement.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- CURSUS ACADÉMIQUE -->
+            <tr>
+                <td colspan="2" class="section-title">CURSUS ACADÉMIQUE</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="section-content">
+                    <div class="content-cell">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 33%; padding: 5px;">
+                                    <div class="badge">2024</div>
+                                    <strong>Baccalauréat</strong>
+                                </td>
+                                <td style="width: 33%; padding: 5px;">
+                                    <div class="badge">2023</div>
+                                    <strong>Probatoire</strong>
+                                </td>
+                                <td style="width: 33%; padding: 5px;">
+                                    <div class="badge">2020</div>
+                                    <strong>BEPC</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="padding: 5px;">
+                                    <div class="badge">2017</div>
+                                    <strong>CEPE</strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- EXPÉRIENCE PROFESSIONNELLE -->
+            <tr>
+                <td colspan="2" class="section-title">EXPÉRIENCE PROFESSIONNELLE</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="section-content">
+                    <div class="content-cell">
+                        <div class="experience-item">
+                            <h4>🌱 AGRICULTURE</h4>
+                            <p>Expérience pratique dans le domaine agricole, développement de compétences en gestion et organisation.</p>
+                        </div>
+                        <div class="experience-item">
+                            <h4>♻️ STAGE - Entreprise de Recyclage</h4>
+                            <p>Stage pratique dans une entreprise spécialisée dans le recyclage, sensibilisation à l'économie circulaire.</p>
+                        </div>
+                        <div class="experience-item">
+                            <h4>📋 SECRÉTARIAT</h4>
+                            <p>Expérience en secrétariat, développement de compétences administratives et organisationnelles.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <!-- LANGUES ET LOISIRS SUR DEUX COLONNES -->
+            <tr>
+                <td width="50%" class="section-title">LANGUES</td>
+                <td width="50%" class="section-title">LOISIRS</td>
+            </tr>
+            <tr>
+                <td class="section-content">
+                    <div class="content-cell">
+                        <div class="language-level">
+                            <strong>Français :</strong>
+                            <div class="level-bar">
+                                <div class="level-fill" style="width: 95%;"></div>
+                            </div>
+                            <span>Courant</span>
+                        </div>
+                        <div class="language-level">
+                            <strong>Anglais :</strong>
+                            <div class="level-bar">
+                                <div class="level-fill" style="width: 70%;"></div>
+                            </div>
+                            <span>Intermédiaire</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="section-content">
+                    <div class="content-cell">
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="badge">📚 Lecture</span>
+                            <span class="badge">⚽ Football</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- ÉCOLE EN BAS -->
+        <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 20px; text-align: center; border-top: 3px solid #3498db;">
+            <h3 style="color: #2c3e50; font-size: 18px;">ÉCOLE SUPÉRIEURE DES TRANSFORMATIONS DES MINES ET DES RESSOURCES ÉNERGÉTIQUES</h3>
+            <p style="color: #666; margin-top: 10px;">Formation d'excellence en ingénierie des mines et énergies renouvelables</p>
+        </div>
+        
+        <div class="footer">
+            © 2024 ZINGA FOE DIVIN KEVIN - Tous droits réservés
+        </div>
+        
+        <!-- Note pour GitHub -->
+        <div class="github-note">
+            📌 Pour GitHub : Assure-toi d'avoir les fichiers <strong>photo.jpg</strong> et <strong>logo.png</strong> dans le même dossier que ce fichier HTML.
+            <br>
+            <a href="#" onclick="alert('Lien WhatsApp : https://wa.me/237689938437')">🔗 Lien WhatsApp direct</a>
+        </div>
+    </div>
+</body>
+  </html>
